@@ -49,6 +49,15 @@
     <url>/myblog/2025/03/20/test/</url>
     <content><![CDATA[<p><img src="/myblog/test.png"></p>
 <p><img src="/myblog/img/neko.jpg"></p>
+<p><img src="/myblog/img/neko.jpg"></p>
+<p><img src="/myblog/images/test01.png"></p>
+<p><img src="/myblog/images/test01.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test_02</title>
+    <url>/myblog/2025/03/20/test-02/</url>
+    <content><![CDATA[<p><img src="/myblog/../images/test01.png"></p>
 ]]></content>
   </entry>
 </search>
