@@ -44,4 +44,10 @@
 <p>成功结束！</p>
 ]]></content>
   </entry>
+  <entry>
+    <title>这是一个测试标题</title>
+    <url>/myblog/2025/03/20/test/</url>
+    <content><![CDATA[<p><img src="/myblog/test/test.png"></p>
+]]></content>
+  </entry>
 </search>
