@@ -48,6 +48,8 @@
     <title>这是一个测试标题</title>
     <url>/myblog/2025/03/20/test/</url>
     <content><![CDATA[<p><img src="/myblog/.io//test/test.png"></p>
+<img src="/myblog/.io//2025/03/20/test/test.png" class>
+
 ]]></content>
   </entry>
 </search>
