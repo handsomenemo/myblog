@@ -56,10 +56,11 @@
   <entry>
     <title>test03</title>
     <url>/myblog/2025/03/21/test03/</url>
-    <content><![CDATA[<p><img src="/myblog/test03/test03.png"></p>
+    <content><![CDATA[<p><img src="/myblog/./test03/test03.png"></p>
 <p><img src="/myblog/Blog/source/_posts/test03/test03.png"></p>
 <p><img src="/myblog/test03/test03.png"></p>
-<p><img src="/myblog/"></p>
+<p><img src="/myblog/2025/03/21/test03/test03.png"></p>
+<p><img src="/myblog/2025/03/21/test03/test03.png"></p>
 ]]></content>
   </entry>
   <entry>
